@@ -8,51 +8,57 @@ function Slider() {
         "#slider .slides__item.active"
     );
     const slidesWrapper = document.querySelector(".slide__item__wrap");
+    // all current slides
+    let currentSlideSnapshot = [...getAllSlides];
     // utility or helper function
     function activeImgText() {
         const getText = getActiveItem.querySelector(".slider__content");
         const getImg = getActiveItem.querySelector(".img__container");
         return [getText, getImg];
     }
-    function removeClass(items, classList) {
-        items.forEach((item, index) => {
-            // item.classList.remove()
-        });
+
+    function classUtl(element) {
+        let item = document.querySelector(element);
+        return {
+            add: function (i) {
+                item.classList.add(i);
+                return this;
+            },
+            remove: function (i) {
+                item.classList.remove(i);
+                return this;
+            },
+        };
     }
-    // slider functions data 
-    const slidesItemsList = [];
+
+    function markActive() {
+        const slides = snapShortSlides();
+        slides.forEach((item, index) => {
+            
+            item.classList.remove("active");
+        });
+        slides[0].classList.add("active");
+    }
+    markActive();
+
+    
+
     // control function
-    leftBtn.onclick = function () {
-        const [text, img] = activeImgText();
-        text.classList.add("textMountSlide");
-        img.classList.add("imgMountSlide");
-        setTimeout(() => {
-            text.classList.remove("textMountSlide");
-            img.classList.remove("imgMountSlide");
-        }, 1100);
-    };
+    leftBtn.onclick = function () {};
 
     rightBtn.onclick = function () {
-        const [text, img] = activeImgText();
-        text.classList.add("textUnmountSlide");
-        img.classList.add("imgUnmountSlide");
-        setTimeout(() => {
-            text.classList.remove("textUnmountSlide");
-            img.classList.remove("imgUnmountSlide");
-            const removedItem = getActiveItem;
-            getActiveItem.remove();
-            slidesWrapper.appendChild(removedItem);
-            snapShortSlides()[0].classList.add("active")
-        }, 1100);
+        let currentActive = document.querySelector(".active");
+        currentActive.remove();
+        slidesWrapper.appendChild(currentActive);
+        currentSlideSnapshot = snapShortSlides();
+        markActive();
     };
 
     function snapShortSlides() {
         return document.querySelectorAll("#slider .slides__item");
     }
     // core slider function
-    const coreSlider = () => {
-        
-    }
+    const coreSlider = () => {};
     return {
         slideLeft: function () {
             console.log("hello rejoan");
