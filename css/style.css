@@ -20,13 +20,12 @@
   padding-top: 155px;
   margin-left: auto;
   margin-right: auto;
-  width: 100%;
+  width: 300px;
   overflow: hidden;
 }
 @media only screen and (min-width: 576px) {
   #slider .slide__container {
     width: 540px;
-    width: 90%;
   }
 }
 @media only screen and (min-width: 768px) {
@@ -49,11 +48,11 @@
 }
 #slider .slide__container .slides__item {
   float: left;
+  width: 300px;
 }
 @media only screen and (min-width: 576px) {
   #slider .slide__container .slides__item {
     width: 540px;
-    width: 90%;
   }
 }
 @media only screen and (min-width: 768px) {
@@ -162,6 +161,9 @@
 #slider .slide__control .slide__con__wrap .active {
   background-color: #494949;
 }
+#slider .slide__btn {
+  margin-top: 25px;
+}
 #slider .slide__btn .btn__wrap {
   display: flex;
   width: 80%;
@@ -171,9 +173,17 @@
 }
 #slider .slide__btn .btn__wrap li {
   width: 35px;
-  height: 20px;
-  background-color: tomato;
+  height: 35px;
   list-style: none;
+  cursor: pointer;
+}
+#slider .slide__btn .btn__wrap li:first-child {
+  background: transparent url("../img/back.png") no-repeat center center;
+  background-size: 100% 100%;
+}
+#slider .slide__btn .btn__wrap li:last-child {
+  background: transparent url("../img/next.png") no-repeat center center;
+  background-size: 100% 100%;
 }
 
 .imgMountSlide {
@@ -190,14 +200,12 @@
   animation-name: imgShowSlider;
   animation-duration: 1s;
   animation-direction: reverse;
-  animation-fill-mode: forwards;
 }
 
 .textUnmountSlide {
   animation-name: textShowSlider;
   animation-duration: 1s;
   animation-direction: reverse;
-  animation-fill-mode: forwards;
 }
 
 @keyframes imgShowSlider {

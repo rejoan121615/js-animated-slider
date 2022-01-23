@@ -39,11 +39,10 @@ body {
     .slide__container {
         padding-top: 155px;
         @include mxAuto();
-        width: 100%;
+        width: 300px;
         overflow: hidden;
         @include resp($sm) {
             width: 540px;
-            width: 90%;
         }
         @include resp($md) {
             width: 720px;
@@ -61,9 +60,9 @@ body {
         // slider item
         .slides__item {
             float: left;
+            width: 300px;
             @include resp($sm) {
                 width: 540px;
-                width: 90%;
             }
             @include resp($md) {
                 width: 720px;
@@ -163,6 +162,7 @@ body {
     }
     // slider btn
     .slide__btn {
+        margin-top: 25px;
         .btn__wrap {
             display: flex;
             width: 80%;
@@ -170,9 +170,19 @@ body {
             justify-content: space-between;
             li {
                 width: 35px;
-                height: 20px;
-                background-color: tomato;
+                height: 35px;
                 list-style: none;
+                cursor: pointer;
+                &:first-child {
+                    background: transparent url("../img/back.png") no-repeat
+                        center center;
+                    background-size: 100% 100%;
+                }
+                &:last-child {
+                    background: transparent url("../img/next.png") no-repeat
+                        center center;
+                    background-size: 100% 100%;
+                }
             }
         }
     }
@@ -192,13 +202,11 @@ body {
     animation-name: imgShowSlider;
     animation-duration: 1s;
     animation-direction: reverse;
-    animation-fill-mode: forwards;
 }
 .textUnmountSlide {
     animation-name: textShowSlider;
     animation-duration: 1s;
     animation-direction: reverse;
-    animation-fill-mode: forwards;
 }
 
 // animations

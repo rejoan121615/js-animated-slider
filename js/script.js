@@ -40,16 +40,28 @@ function Slider() {
     }
     markActive();
 
-    // control function
-    leftBtn.onclick = function () {
+    function removeEffect() {
         document
             .querySelector(".active .slider__content")
             .classList.remove("imgMountSlide");
         document
             .querySelector(".active .img__container")
             .classList.remove("textMountSlide");
+    }
 
-        console.log(document.querySelector(".active"));
+    // unmount effect
+    function unmountAll() {
+        removeEffect();
+        classUtl(".active .slider__content").add("imgUnmountSlide");
+        classUtl(".active .img__container").add("textUnmountSlide");
+        return setTimeout(() => {
+            return true;
+        }, 1000);
+    }
+
+    // control function
+    leftBtn.onclick = function () {
+        removeEffect();
         let sliderItemsList = document.querySelectorAll(".slides__item");
         const lastItem = sliderItemsList[sliderItemsList.length - 1];
         slidesWrapper.prepend(lastItem);
@@ -59,14 +71,7 @@ function Slider() {
     };
 
     rightBtn.onclick = function () {
-        console.log(document.querySelector(".active"));
-        document
-            .querySelector(".active .slider__content")
-            .classList.remove("imgMountSlide");
-        document
-            .querySelector(".active .img__container")
-            .classList.remove("textMountSlide");
-
+        removeEffect();
         let currentActive = document.querySelector(".active");
         currentActive.remove();
         slidesWrapper.appendChild(currentActive);
