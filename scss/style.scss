@@ -202,11 +202,13 @@ body {
     animation-name: imgShowSlider;
     animation-duration: 1s;
     animation-direction: reverse;
+    animation-fill-mode: forwards;
 }
 .textUnmountSlide {
     animation-name: textShowSlider;
     animation-duration: 1s;
     animation-direction: reverse;
+    animation-fill-mode: forwards;
 }
 
 // animations

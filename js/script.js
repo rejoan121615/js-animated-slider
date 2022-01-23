@@ -49,35 +49,49 @@ function Slider() {
             .classList.remove("textMountSlide");
     }
 
+    function removeUnMountEffect() {
+        const imgContent = document.querySelectorAll(".slider__content");
+        const textContent = document.querySelectorAll(".img__container");
+        imgContent.forEach((item, index) => {
+            item.classList.remove("textUnmountSlide");
+            textContent[index].classList.remove("imgUnmountSlide");
+        });
+        console.log(document.querySelectorAll(".slider__content"));
+    }
+
     // unmount effect
     function unmountAll() {
         removeEffect();
         classUtl(".active .slider__content").add("imgUnmountSlide");
         classUtl(".active .img__container").add("textUnmountSlide");
-        return setTimeout(() => {
-            return true;
-        }, 1000);
     }
 
     // control function
     leftBtn.onclick = function () {
         removeEffect();
-        let sliderItemsList = document.querySelectorAll(".slides__item");
-        const lastItem = sliderItemsList[sliderItemsList.length - 1];
-        slidesWrapper.prepend(lastItem);
-        markActive();
-        classUtl(".active .slider__content").add("imgMountSlide");
-        classUtl(".active .img__container").add("textMountSlide");
+        // let sliderItemsList = document.querySelectorAll(".slides__item");
+        // const lastItem = sliderItemsList[sliderItemsList.length - 1];
+        // slidesWrapper.prepend(lastItem);
+        // markActive();
+        // classUtl(".active .slider__content").add("imgMountSlide");
+        // classUtl(".active .img__container").add("textMountSlide");
     };
 
     rightBtn.onclick = function () {
         removeEffect();
-        let currentActive = document.querySelector(".active");
-        currentActive.remove();
-        slidesWrapper.appendChild(currentActive);
-        markActive();
-        classUtl(".active .slider__content").add("imgMountSlide");
-        classUtl(".active .img__container").add("textMountSlide");
+        unmountAll();
+        setTimeout(() => {
+            let currentActive = document.querySelector(".active");
+            currentActive.remove();
+            slidesWrapper.appendChild(currentActive);
+            markActive();
+            removeUnMountEffect();
+            classUtl(".active .slider__content").add("imgMountSlide");
+            classUtl(".active .img__container").add("textMountSlide");
+            setTimeout(() => {
+                removeEffect();
+            });
+        }, 1500);
     };
 
     function snapShortSlides() {
