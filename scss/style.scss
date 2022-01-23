@@ -33,28 +33,47 @@ body {
     padding-right: 15px;
     background: transparent url("../img/background-sm.jpg") no-repeat top center;
     background-size: 100% 65%;
-    @include resp ($xl) {
+    @include resp($xl) {
         background-size: 100% 55%;
     }
     .slide__container {
         padding-top: 155px;
         @include mxAuto();
         width: 100%;
+        overflow: hidden;
         @include resp($sm) {
-            max-width: 540px;
+            width: 540px;
             width: 90%;
         }
         @include resp($md) {
-            max-width: 720px;
+            width: 720px;
         }
         @include resp($lg) {
-            max-width: 960px;
+            width: 960px;
         }
         @include resp($xl) {
-            max-width: 1140px;
+            width: 1140px;
+        }
+        .slide__item__wrap {
+            width: 5000px;
         }
 
+        // slider item
         .slides__item {
+            float: left;
+            @include resp($sm) {
+                width: 540px;
+                width: 90%;
+            }
+            @include resp($md) {
+                width: 720px;
+            }
+            @include resp($lg) {
+                width: 960px;
+            }
+            @include resp($xl) {
+                width: 1140px;
+            }
             // position: relative;
             @include resp($md) {
                 margin-top: 35px;
@@ -108,7 +127,6 @@ body {
                 }
                 img {
                     width: 100%;
-                    
                 }
             }
         }
@@ -116,11 +134,11 @@ body {
     // slider control
     .slide__control {
         display: none;
-        @include resp ($md) {
+        @include resp($md) {
             display: block;
             margin-top: 45px;
         }
-        @include resp ($xl) {
+        @include resp($xl) {
             margin-top: 65px;
         }
         text-align: center;
@@ -141,5 +159,5 @@ body {
                 background-color: #494949;
             }
         }
-    } 
+    }
 }

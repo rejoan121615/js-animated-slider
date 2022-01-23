@@ -22,26 +22,54 @@
   margin-left: auto;
   margin-right: auto;
   width: 100%;
+  overflow: hidden;
 }
 @media only screen and (min-width: 576px) {
   #slider .slide__container {
-    max-width: 540px;
+    width: 540px;
     width: 90%;
   }
 }
 @media only screen and (min-width: 768px) {
   #slider .slide__container {
-    max-width: 720px;
+    width: 720px;
   }
 }
 @media only screen and (min-width: 992px) {
   #slider .slide__container {
-    max-width: 960px;
+    width: 960px;
   }
 }
 @media only screen and (min-width: 1200px) {
   #slider .slide__container {
-    max-width: 1140px;
+    width: 1140px;
+  }
+}
+#slider .slide__container .slide__item__wrap {
+  width: 5000px;
+}
+#slider .slide__container .slides__item {
+  float: left;
+}
+@media only screen and (min-width: 576px) {
+  #slider .slide__container .slides__item {
+    width: 540px;
+    width: 90%;
+  }
+}
+@media only screen and (min-width: 768px) {
+  #slider .slide__container .slides__item {
+    width: 720px;
+  }
+}
+@media only screen and (min-width: 992px) {
+  #slider .slide__container .slides__item {
+    width: 960px;
+  }
+}
+@media only screen and (min-width: 1200px) {
+  #slider .slide__container .slides__item {
+    width: 1140px;
   }
 }
 @media only screen and (min-width: 768px) {
