@@ -32,32 +32,47 @@ function Slider() {
     }
 
     function markActive() {
-        console.log(document.querySelector(".active"));
         const slides = snapShortSlides();
         slides.forEach((item, index) => {
             item.classList.remove("active");
         });
         slides[0].classList.add("active");
-        classUtl(".active .slider__content").add("imgMountSlide");
-        classUtl(".active .img__container").add("textMountSlide");
     }
     markActive();
 
     // control function
     leftBtn.onclick = function () {
-        let currentActive = document.querySelectorAll(".slides__item");
-        console.log(currentActive);
-        const lastItem = currentActive[currentActive.length - 1];
+        document
+            .querySelector(".active .slider__content")
+            .classList.remove("imgMountSlide");
+        document
+            .querySelector(".active .img__container")
+            .classList.remove("textMountSlide");
+
+        console.log(document.querySelector(".active"));
+        let sliderItemsList = document.querySelectorAll(".slides__item");
+        const lastItem = sliderItemsList[sliderItemsList.length - 1];
         slidesWrapper.prepend(lastItem);
         markActive();
+        classUtl(".active .slider__content").add("imgMountSlide");
+        classUtl(".active .img__container").add("textMountSlide");
     };
 
     rightBtn.onclick = function () {
+        console.log(document.querySelector(".active"));
+        document
+            .querySelector(".active .slider__content")
+            .classList.remove("imgMountSlide");
+        document
+            .querySelector(".active .img__container")
+            .classList.remove("textMountSlide");
+
         let currentActive = document.querySelector(".active");
         currentActive.remove();
         slidesWrapper.appendChild(currentActive);
-        currentSlideSnapshot = snapShortSlides();
         markActive();
+        classUtl(".active .slider__content").add("imgMountSlide");
+        classUtl(".active .img__container").add("textMountSlide");
     };
 
     function snapShortSlides() {
