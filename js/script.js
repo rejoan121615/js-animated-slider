@@ -44,7 +44,11 @@ function Slider() {
     
 
     // control function
-    leftBtn.onclick = function () {};
+    leftBtn.onclick = function () {
+        let currentActive = document.querySelectorAll(".slides__item");
+        const lastItem = currentActive[currentActive.length - 1];
+        slidesWrapper.prepend(lastItem);
+    };
 
     rightBtn.onclick = function () {
         let currentActive = document.querySelector(".active");
