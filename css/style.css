@@ -9,7 +9,6 @@
   width: 100%;
   padding-left: 15px;
   padding-right: 15px;
-  background: transparent url("../img/background-sm.jpg") no-repeat top center;
   background-size: 100% 65%;
 }
 @media only screen and (min-width: 1200px) {
@@ -115,6 +114,7 @@
   color: #888787;
 }
 #slider .slide__container .slides__item .img__container {
+  background-color: white;
   display: none;
 }
 @media only screen and (min-width: 768px) {
@@ -161,6 +161,74 @@
 }
 #slider .slide__control .slide__con__wrap .active {
   background-color: #494949;
+}
+#slider .slide__btn .btn__wrap {
+  display: flex;
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+  justify-content: space-between;
+}
+#slider .slide__btn .btn__wrap li {
+  width: 35px;
+  height: 20px;
+  background-color: tomato;
+  list-style: none;
+}
+
+.imgMountSlide {
+  animation-name: imgShowSlider;
+  animation-duration: 1s;
+}
+
+.textMountSlide {
+  animation-name: textShowSlider;
+  animation-duration: 1s;
+}
+
+.imgUnmountSlide {
+  animation-name: imgShowSlider;
+  animation-duration: 1s;
+  animation-direction: reverse;
+  animation-fill-mode: forwards;
+}
+
+.textUnmountSlide {
+  animation-name: textShowSlider;
+  animation-duration: 1s;
+  animation-direction: reverse;
+  animation-fill-mode: forwards;
+}
+
+@keyframes imgShowSlider {
+  0% {
+    transform: rotate(-5deg) translateY(25px) translateX(8px);
+    opacity: 0;
+  }
+  60% {
+    opacity: 0.6;
+  }
+  85% {
+    opacity: 1;
+  }
+  100% {
+    transform: rotate(0deg) translate(0, 0);
+  }
+}
+@keyframes textShowSlider {
+  0% {
+    transform: translate(-25px, 25px);
+    opacity: 0;
+  }
+  60% {
+    opacity: 0.6;
+  }
+  85% {
+    opacity: 1;
+  }
+  100% {
+    transform: translate(0px, 0px);
+  }
 }
 
 /*# sourceMappingURL=style.css.map */
