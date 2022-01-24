@@ -72,7 +72,6 @@
 }
 @media only screen and (min-width: 768px) {
   #slider .slide__container .slides__item {
-    margin-top: 35px;
     display: grid;
     grid-template-columns: 1.5fr 0.5fr 1.5fr;
     grid-template-rows: 1fr;
@@ -84,7 +83,7 @@
     grid-template-columns: 1fr 1fr 1.5fr;
   }
 }
-#slider .slide__container .slides__item .slider__content {
+#slider .slide__container .slides__item .text__container {
   background-color: #eaeaea;
   padding: 50px 40px;
   border-radius: 45px;
@@ -92,20 +91,20 @@
   grid-row: 1/-1;
 }
 @media only screen and (min-width: 768px) {
-  #slider .slide__container .slides__item .slider__content {
+  #slider .slide__container .slides__item .text__container {
     left: 0px;
     top: 0px;
     z-index: 20;
   }
 }
-#slider .slide__container .slides__item .slider__content p {
+#slider .slide__container .slides__item .text__container p {
   font-family: Arial;
   font-size: 20px;
   font-weight: bold;
   line-height: 120%;
   color: #707070;
 }
-#slider .slide__container .slides__item .slider__content .user {
+#slider .slide__container .slides__item .text__container .user {
   margin-top: 35px;
   font-size: 18px;
   font-weight: medium;
@@ -200,19 +199,17 @@
   animation-name: imgShowSlider;
   animation-duration: 1s;
   animation-direction: reverse;
-  animation-fill-mode: forwards;
 }
 
 .textUnmountSlide {
   animation-name: textShowSlider;
   animation-duration: 1s;
   animation-direction: reverse;
-  animation-fill-mode: forwards;
 }
 
 @keyframes imgShowSlider {
   0% {
-    transform: rotate(-5deg) translateY(25px) translateX(8px);
+    transform: translateX(100%);
     opacity: 0;
   }
   60% {
@@ -222,12 +219,12 @@
     opacity: 1;
   }
   100% {
-    transform: rotate(0deg) translate(0, 0);
+    transform: translate(0, 0);
   }
 }
 @keyframes textShowSlider {
   0% {
-    transform: translate(-25px, 25px);
+    transform: translate(-100%);
     opacity: 0;
   }
   60% {
@@ -237,7 +234,17 @@
     opacity: 1;
   }
   100% {
-    transform: translate(0px, 0px);
+    transform: translateX(0%);
+  }
+}
+.transX {
+  animation-name: moveSlider;
+  animation-duration: 1s;
+}
+
+@keyframes moveSlider {
+  100% {
+    transform: translateX(-100%);
   }
 }
 

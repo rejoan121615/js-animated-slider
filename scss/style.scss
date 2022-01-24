@@ -75,7 +75,6 @@ body {
             }
             // position: relative;
             @include resp($md) {
-                margin-top: 35px;
                 display: grid;
                 grid-template-columns: 1.5fr 0.5fr 1.5fr;
                 grid-template-rows: 1fr;
@@ -85,7 +84,7 @@ body {
                 grid-template-columns: 1fr 1fr 1.5fr;
             }
             // slider content
-            .slider__content {
+            .text__container {
                 background-color: #eaeaea;
                 padding: 50px 40px;
                 border-radius: 45px;
@@ -202,19 +201,17 @@ body {
     animation-name: imgShowSlider;
     animation-duration: 1s;
     animation-direction: reverse;
-    animation-fill-mode: forwards;
 }
 .textUnmountSlide {
     animation-name: textShowSlider;
     animation-duration: 1s;
     animation-direction: reverse;
-    animation-fill-mode: forwards;
 }
 
 // animations
 @keyframes imgShowSlider {
     0% {
-        transform: rotate(-5deg) translateY(25px) translateX(8px);
+        transform: translateX(100%);
         opacity: 0;
     }
     60% {
@@ -224,12 +221,12 @@ body {
         opacity: 1;
     }
     100% {
-        transform: rotate(0deg) translate(0, 0);
+        transform: translate(0, 0);
     }
 }
 @keyframes textShowSlider {
     0% {
-        transform: translate(-25px, 25px);
+        transform: translate(-100%);
         opacity: 0;
     }
     60% {
@@ -239,6 +236,18 @@ body {
         opacity: 1;
     }
     100% {
-        transform: translate(0px, 0px);
+        transform: translateX(0%);
+    }
+}
+
+.transX {
+    animation-name: moveSlider;
+    animation-duration: 1s;
+    // animation-fill-mode: forwards;
+}
+
+@keyframes moveSlider {
+    100% {
+        transform: translateX(-100%);
     }
 }
